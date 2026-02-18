@@ -5,7 +5,7 @@ My personal [Claude Code](https://claude.ai/claude-code) settings — permission
 ## Install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/claude-settings
+git clone https://github.com/ehudhal/claude-settings
 cd claude-settings && bash install.sh
 ```
 
