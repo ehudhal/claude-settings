@@ -1,0 +1,53 @@
+{
+  "defaultMode": "acceptEdits",
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); repo=$(git -C \"$(echo \"$input\" | jq -r '.workspace.current_dir')\" config --get remote.origin.url 2>/dev/null | sed -E 's#.*/([^/]+)(\\.git)?$#\\1#'); branch=$(git -C \"$(echo \"$input\" | jq -r '.workspace.current_dir')\" branch --show-current 2>/dev/null); [ -n \"$repo\" ] && [ -n \"$branch\" ] && echo \"$repo [$branch]\" || echo \"$(basename \"$(echo \"$input\" | jq -r '.workspace.current_dir')\")\""
+  },
+  "permissions": {
+    "deny": [
+      "Bash(git push --force *)",
+      "Bash(git push --force)",
+      "Bash(git reset --hard *)",
+      "Bash(git reset --hard)",
+      "Bash(git clean *)",
+      "Bash(git branch -D *)",
+      "Bash(git checkout .)",
+      "Bash(git restore .)",
+      "Bash(rm -rf *)"
+    ],
+    "allow": [
+      "Bash(git status *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git diff)",
+      "Bash(git log *)",
+      "Bash(git log)",
+      "Bash(git stash *)",
+      "Bash(git checkout *)",
+      "Bash(git branch *)",
+      "Bash(git branch)",
+      "Bash(git rev-parse *)",
+      "Bash(git config --get *)",
+      "Bash(git commit *)",
+      "Bash(git commit)",
+      "Bash(git add *)",
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(npm install)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(python3 *)",
+      "Bash(ls *)",
+      "Bash(ls)",
+      "Bash(lsof *)",
+      "Bash(curl *)",
+      "Bash(source *)",
+      "Bash(gh pr *)",
+      "Bash(gh issue *)",
+      "Bash(gh api *)",
+      "WebSearch",
+      "mcp__claude-in-chrome__*"
+    ]
+  }
+}
