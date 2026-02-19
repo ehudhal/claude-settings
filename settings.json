@@ -2,7 +2,7 @@
   "defaultMode": "acceptEdits",
   "statusLine": {
     "type": "command",
-    "command": "input=$(cat); repo=$(git -C \"$(echo \"$input\" | jq -r '.workspace.current_dir')\" config --get remote.origin.url 2>/dev/null | sed -E 's#.*/([^/]+)(\\.git)?$#\\1#'); branch=$(git -C \"$(echo \"$input\" | jq -r '.workspace.current_dir')\" branch --show-current 2>/dev/null); [ -n \"$repo\" ] && [ -n \"$branch\" ] && echo \"$repo [$branch]\" || echo \"$(basename \"$(echo \"$input\" | jq -r '.workspace.current_dir')\")\""
+    "command": "input=$(cat); repo=$(git -C \"$(echo \"$input\" | jq -r '.workspace.current_dir')\" config --get remote.origin.url 2>/dev/null | sed -E 's#.*/([^/]+)(\\.git)?$#\\1#'); branch=$(git -C \"$(echo \"$input\" | jq -r '.workspace.current_dir')\" branch --show-current 2>/dev/null); model=$(echo \"$input\" | jq -r '.model.display_name // empty'); location=$([ -n \"$repo\" ] && [ -n \"$branch\" ] && echo \"$repo [$branch]\" || basename \"$(echo \"$input\" | jq -r '.workspace.current_dir')\"); [ -n \"$model\" ] && echo \"$location - $model\" || echo \"$location\""
   },
   "permissions": {
     "deny": [
@@ -49,5 +49,8 @@
       "WebSearch",
       "mcp__claude-in-chrome__*"
     ]
+  },
+  "enabledPlugins": {
+    "example-skills@anthropic-agent-skills": true
   }
 }
