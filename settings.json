@@ -41,6 +41,7 @@
       "Bash(ls *)",
       "Bash(ls)",
       "Bash(lsof *)",
+      "Bash(grep *)",
       "Bash(curl *)",
       "Bash(source *)",
       "Bash(gh pr *)",
